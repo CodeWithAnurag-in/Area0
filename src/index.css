@@ -1,0 +1,243 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-heading: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Instrument Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-sans: 'Instrument Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'Instrument Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+@layer base {
+  :root {
+    --font-heading: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-body: 'Instrument Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-sans: 'Instrument Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-display: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'Instrument Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+    /* Bento Monochrome 1 - Light Mode */
+    --bg: #f1f5f9; /* bg-slate-100 */
+    --bg-card: rgba(255, 255, 255, 0.80); /* bg-white/80 */
+    --bg-card-solid: #ffffff;
+    --bg-card-subtle: #f8fafc;
+    --bg-terminal: #0a0a0a;
+    --text-primary: #171717; /* text-neutral-900 */
+    --text-secondary: #525252; /* text-neutral-600 */
+    --text-muted: #737373; /* text-neutral-500 */
+    --hairline: #e5e5e5; /* border-neutral-200 */
+    --hairline-subtle: rgba(0, 0, 0, 0.05);
+    --input-bg: #ffffff;
+    --accent-glow: rgba(15, 23, 42, 0.15); /* Radial Mouse Glow */
+    --bento3-focus-glow: rgba(15, 23, 42, 0.15);
+    --bento-glow: rgba(15, 23, 42, 0.15);
+    --glass-nav: rgba(241, 245, 249, 0.85);
+    --gauge-track: #e5e5e5; /* border-neutral-200 */
+    --gauge-indicator: #111827; /* Crisp dark indicator */
+    --pro-card-hover-border: #a3a3a3; /* border-neutral-400 */
+    --pro-card-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
+    --code-bg: #f8fafc;
+    --badge-ip-text: #3f3f46; /* text-neutral-700 */
+    --badge-ip-bg: rgba(255, 255, 255, 0.70); /* bg-white/70 */
+    --badge-ip-border: #e5e5e5; /* border-neutral-200 */
+    --accent-icon: #171717;
+  }
+
+  .dark {
+    /* Bento Monochrome 1 - Dark Mode */
+    --bg: #0a0a0a; /* bg-neutral-950 */
+    --bg-card: rgba(23, 23, 23, 0.55); /* bg-neutral-900/55 */
+    --bg-card-solid: #171717;
+    --bg-card-subtle: rgba(23, 23, 23, 0.75);
+    --bg-terminal: #0a0a0a; /* bg-neutral-950 */
+    --text-primary: #f5f5f5; /* text-neutral-100 */
+    --text-secondary: #a3a3a3; /* text-neutral-400 */
+    --text-muted: #737373; /* text-neutral-500 */
+    --hairline: rgba(255, 255, 255, 0.10); /* border-white/10 */
+    --hairline-subtle: rgba(255, 255, 255, 0.06);
+    --input-bg: #171717; /* bg-neutral-900 */
+    --accent-glow: rgba(255, 255, 255, 0.14); /* Radial Mouse Glow */
+    --bento3-focus-glow: rgba(255, 255, 255, 0.14);
+    --bento-glow: rgba(255, 255, 255, 0.14);
+    --glass-nav: rgba(10, 10, 10, 0.85);
+    --gauge-track: #262626; /* border-neutral-800 */
+    --gauge-indicator: #ffffff; /* Crisp white */
+    --pro-card-hover-border: rgba(255, 255, 255, 0.35);
+    --pro-card-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7);
+    --code-bg: #0a0a0a;
+    --badge-ip-text: rgba(255, 255, 255, 0.80); /* text-white/80 */
+    --badge-ip-bg: rgba(255, 255, 255, 0.05); /* bg-white/5 */
+    --badge-ip-border: rgba(255, 255, 255, 0.10); /* border-white/10 */
+    --accent-icon: #f5f5f5;
+  }
+
+  /* Base Body Styles */
+  body {
+    background-color: var(--bg);
+    color: var(--text-primary);
+    -webkit-font-smoothing: antialiased;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
+
+  /* ALL text, code, IP addresses, numbers, binary masks, inputs, tables strictly Instrument Sans */
+  *,
+  *::before,
+  *::after,
+  body,
+  p,
+  span,
+  div,
+  code,
+  pre,
+  kbd,
+  samp,
+  input,
+  button,
+  table,
+  td,
+  th,
+  .font-mono,
+  [class*="font-mono"],
+  .font-body,
+  .font-sans {
+    font-family: var(--font-body), -apple-system, BlinkMacSystemFont, sans-serif !important;
+  }
+
+  /* Headings strictly Plus Jakarta Sans ONLY */
+  h1, h2, h3, h4, h5, h6,
+  h1 *, h2 *, h3 *, h4 *, h5 *, h6 *,
+  .font-heading,
+  .font-heading *,
+  .font-display,
+  .font-display *,
+  [data-heading],
+  [data-heading] * {
+    font-family: var(--font-heading), -apple-system, BlinkMacSystemFont, sans-serif !important;
+    letter-spacing: -0.025em;
+  }
+}
+
+
+
+/* Apple Pro Semantic Surface Classes */
+.pro-glass {
+  background-color: var(--bg-card);
+  border: 1px solid var(--hairline);
+  color: var(--text-primary);
+}
+
+.bento-card,
+.pro-glass-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--hairline);
+  color: var(--text-primary);
+  border-radius: 28px; /* Standardized to rounded-[28px] */
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.bento-card::before,
+.pro-glass-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: radial-gradient(
+    450px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    var(--bento3-focus-glow, var(--bento-glow)),
+    transparent 70%
+  );
+  z-index: 1;
+}
+
+.bento-card:hover::before,
+.pro-glass-card:hover::before {
+  opacity: 1;
+}
+
+.bento-card:hover,
+.pro-glass-card:hover {
+  border-color: var(--pro-card-hover-border);
+  box-shadow: var(--pro-card-shadow);
+}
+
+.pro-hairline {
+  border-color: var(--hairline);
+}
+
+.pro-hairline-subtle {
+  border-color: var(--hairline-subtle);
+}
+
+.pro-terminal {
+  background-color: var(--bg-terminal);
+  border: 1px solid var(--hairline);
+  color: var(--text-primary);
+  border-radius: 28px;
+}
+
+.pro-input {
+  background-color: var(--input-bg);
+  border: 1px solid var(--hairline);
+  color: var(--text-primary);
+  border-radius: 0.75rem; /* rounded-xl */
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.pro-input:focus {
+  outline: none;
+  border-color: #a3a3a3; /* focus:border-neutral-400 */
+}
+
+.dark .pro-input:focus {
+  border-color: rgba(255, 255, 255, 0.30); /* focus:border-white/30 */
+}
+
+/* Bento Background Grid Overlay */
+.bento-grid-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: linear-gradient(to right, rgba(15, 23, 42, 0.04) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(15, 23, 42, 0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+  mask-image: linear-gradient(180deg, rgba(248, 250, 252, 0.96) 0%, rgba(241, 245, 249, 0.68) 45%, rgba(248, 250, 252, 0.96) 100%);
+  -webkit-mask-image: linear-gradient(180deg, rgba(248, 250, 252, 0.96) 0%, rgba(241, 245, 249, 0.68) 45%, rgba(248, 250, 252, 0.96) 100%);
+}
+
+.dark .bento-grid-overlay {
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 32px 32px;
+  mask-image: linear-gradient(180deg, rgba(10, 10, 10, 0.92) 0%, rgba(10, 10, 10, 0.70) 45%, rgba(10, 10, 10, 0.92) 100%);
+  -webkit-mask-image: linear-gradient(180deg, rgba(10, 10, 10, 0.92) 0%, rgba(10, 10, 10, 0.70) 45%, rgba(10, 10, 10, 0.92) 100%);
+}
+
+/* Tabular figures for razor-sharp numerical/IP alignment */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--hairline);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
